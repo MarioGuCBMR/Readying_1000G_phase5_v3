@@ -1,0 +1,47 @@
+##############
+#INTRODUCTION#
+##############
+
+#This is just the original version of the code to create indexed files 
+#with bcftools.
+
+#We need the index files to be able to generate the plink data that we 
+#can later use with R.
+
+######
+#MAIN#
+######
+
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr1.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr2.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr3.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr4.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr5.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr6.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr7.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr8.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr9.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr10.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr11.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr12.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr13.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr14.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr15.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr16.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr17.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr18.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr19.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr20.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr21.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+bcftools index --tbi /emc/cbmr/users/zlc436/Romain_IR_variants/LD_CLUMPING/1000G_phase3_v5/ALL.chr22.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+
+#########
+#PERFECT#
+#########
+
+
+
+
+
+
+
