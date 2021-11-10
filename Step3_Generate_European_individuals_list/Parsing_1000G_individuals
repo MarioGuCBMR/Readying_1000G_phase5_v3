@@ -1,0 +1,99 @@
+##############
+#INTRODUCTION#
+##############
+
+#This code is just to parse the data from 1000G into the EUR only.
+
+#NOTE: even if the populations say something about build 38, I checked the bim files and the data that we have is all in build37,
+#just as I did the summary data. All good.
+
+#We are gonna keep those in superpopulation EUR and use keep-fam in the final code to obtain those individuals.
+#It seems that with keep-fam we only need one column, so that should be easy to work with.
+
+###################
+#Loading libraries#
+###################
+
+library(data.table)
+library(tidyverse)
+
+##############
+#Loading data#
+##############
+
+population <- fread("/emc/cbmr/users/zlc436/1000G_Phase3_v5/RAW_DATA/INDIVIDUAL_DATA/igsr_populations.tsv")
+samples <- fread("/emc/cbmr/users/zlc436/1000G_Phase3_v5/RAW_DATA/INDIVIDUAL_DATA/igsr_samples.tsv")
+
+####################
+#Exploring the data#
+####################
+
+#First let's explore the population data:
+
+dim(population) #26 populations. We have a column called superpopulation that will let us get the EUR. That is an easy one.
+
+#Then let's check the samples. According to the website we should have 3000~, but maybe that is not the phase3, but the phase3 build 38 or something.
+
+dim(samples) #3115. Spot on.
+
+#Let's check what kind of data do we have with the samples and see if we can filter it.
+
+######################
+#There was no need!!!#
+######################
+
+#In here we already have all the freaking data that we would need. 
+#Awesome. 
+#Let's filter then_
+
+eur_samples <- samples[which(samples$'Superpopulation code' == "EUR"),]
+
+#Let's check these bad boys:
+
+dim(eur_samples) #659!!!
+
+#Sometimes they remove the Finnish and non-Finnish.
+#Let's check the LDlink. How do they do it...
+#They do include them!!
+
+#Then, let's check now how many EUR populations do we have an if they match:
+
+pop_vect <- c()
+
+for(pop in eur_samples$'Population code'){
+
+   if(!(pop%in%pop_vect)){
+
+      print(pop)
+
+      pop_vect <- c(pop_vect, pop)
+  
+   }
+
+}
+
+[1] "FIN"
+[1] "GBR"
+[1] "IBS"
+[1] "CEU"
+[1] "TSI"
+
+#PERFECT. 
+#The ones that we wanted. 5 and they all match.
+
+#####################################
+#We only need to save these bad boys#
+#####################################
+
+eur_samples_names <- as.data.frame(eur_samples$'Sample name')
+
+fwrite(eur_samples_names, "/emc/cbmr/users/zlc436/1000G_Phase3_v5/RAW_DATA/INDIVIDUAL_DATA/eur_samples_only.txt", quote = FALSE, row.names = FALSE, col.names = FALSE, sep = " ")
+
+#################
+#AND WE ARE DONE#
+#################
+
+
+  
+
+
