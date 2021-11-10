@@ -25,7 +25,9 @@ Then, we index it using bcftools -tbi (full code in Step_2_indexing)
 
 ### STEP B. Converting into plink 1.9 files excluding European individuals.
 
-To generate the plink files for only Europeans, what we need to do is generating a list of only the 1000G individuals that are European. You can download in the 1000G website the two files that can be found in the DATA folder: igsr_populations.tsv and igsr_samples.tsv. Then, if you run Parsing_1000G_individuals.R in Step3, you will obtain the 503 European individuals that will be used.
+To generate the plink files for only Europeans, we need a list of the European individuals. To do so we first need to download two files: igsr_populations.tsv and igsr_samples.tsv from https://www.internationalgenome.org/data-portal/population (you can find both of them in the RAW DATA folder in this github.)
+
+You can generate the file eur_samples.only.txt if you follow the code in Step3_Generate_European_individuals_list, or you can download from the CURATED_DATA folder in this github.
 
 
 
