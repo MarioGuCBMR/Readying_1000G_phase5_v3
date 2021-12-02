@@ -4,11 +4,10 @@
 
 #This code is just to parse the data from 1000G into the EUR only.
 
-#NOTE: even if the populations say something about build 38, I checked the bim files and the data that we have is all in build37,
-#just as I did the summary data. All good.
-
 #We are gonna keep those in superpopulation EUR and use keep-fam in the final code to obtain those individuals.
 #It seems that with keep-fam we only need one column, so that should be easy to work with.
+
+#NOTE: you should add your own path to the RAW_DATA and CURATED_DATA folders when you download the reference panel.
 
 ###################
 #Loading libraries#
@@ -21,8 +20,8 @@ library(tidyverse)
 #Loading data#
 ##############
 
-population <- fread("/emc/cbmr/users/zlc436/1000G_Phase3_v5/RAW_DATA/INDIVIDUAL_DATA/igsr_populations.tsv")
-samples <- fread("/emc/cbmr/users/zlc436/1000G_Phase3_v5/RAW_DATA/INDIVIDUAL_DATA/igsr_samples.tsv")
+population <- fread("~/RAW_DATA/igsr_populations.tsv")
+samples <- fread("~/RAW_DATA/igsr_samples.tsv")
 
 ####################
 #Exploring the data#
@@ -87,7 +86,7 @@ for(pop in eur_samples$'Population code'){
 
 eur_samples_names <- as.data.frame(eur_samples$'Sample name')
 
-fwrite(eur_samples_names, "/emc/cbmr/users/zlc436/1000G_Phase3_v5/RAW_DATA/INDIVIDUAL_DATA/eur_samples_only.txt", quote = FALSE, row.names = FALSE, col.names = FALSE, sep = " ")
+fwrite(eur_samples_names, "~/CURATED_DATA/eur_samples_only.txt", quote = FALSE, row.names = FALSE, col.names = FALSE, sep = " ")
 
 #################
 #AND WE ARE DONE#
