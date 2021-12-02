@@ -1,0 +1,71 @@
+#! /bin/bash
+#$ -S /bin/bash
+#$ -N "Cleaning_duplicates_in_1000G_Phase3_v5_data"
+#$ -cwd
+#$ -pe smp 3
+
+conda activate r_env
+
+##############
+#INTRODUCTION#
+##############
+
+#This is a code to clean the 1000G data chromsome by chromosome: 
+
+########################################################################
+#First we are gonna set some strings to match and create paths properly#
+########################################################################
+
+inputDir="~/RAW_DATA/PLINK_DATA/"
+outputDir="~/CURATED_DATA/PLINK_DATA/"
+
+file_str1="chr"
+file_str3="_1000G_phase_3_v5_EUR_maf"
+file_str_bim=".bim"
+sep="/"
+plink_str="plink"
+
+##############################
+#And now we are going to loop#
+##############################
+
+for file_str2 in {1..22}; do
+
+   #Step 0: we go to the folder where we have the plink data:
+
+   inputDir_work="$inputDir$file_str1$file_str2"
+
+   cd $inputDir_work
+
+   #And we set the input file:
+
+   inputDir_end=$inputDir$file_str1$file_str2$sep$file_str1$file_str2$file_str3
+
+   #Step 1: get the duplicates in your folder:
+
+   #inputDupl=$inputDir$file_str1$file_str2$sep
+
+   plink --bfile $inputDir_end --list-duplicate-vars 
+
+   #Step 2: separating the duplicated from the non-duplicated
+
+   inputDir_end_bim=$inputDir$file_str1$file_str2$sep$file_str1$file_str2$file_str3$file_str_bim
+
+   Rscript  ~/Step5_cleaning_duplicates/separating_dupl_from_non_dupl.R $inputDir_end_bim
+
+   #Step 3: creating two different bed files!!
+
+   plink --bfile $inputDir_end --exclude non_duplicated_ids.txt --make-bed --out duplicated
+   plink --bfile $inputDir_end --exclude duplicated_ids.txt --make-bed --out non_duplicated
+
+   #Step 4: let's merge the duplicated because they are annoying as hell:
+
+   plink --bfile duplicated --bmerge duplicated --merge-equal-pos --make-bed --out duplicated_clean
+
+   #Step 5: we merge both data sets!!
+
+   mkdir $outputDir$file_str1$file_str2 #we create a new directory to save the data
+
+   plink --bfile non_duplicated --bmerge duplicated_clean --make-bed --out $outputDir$file_str1$file_str2$sep$file_str1$file_str2$file_str3 #and we create the new cleaned data!!!
+
+done
