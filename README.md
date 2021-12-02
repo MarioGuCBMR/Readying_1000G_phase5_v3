@@ -18,7 +18,7 @@ a) Index the original vcf files so that we can convert them to plink files.
 b) Convert them into plink files removing variants with maf <0.01 and geno < 0.1 (only using individuals of European ancestry).
 c) Removing duplicates  
 
-**IMPORTANTLY: you need your own path to where this repository is downloaded. In the code you will find ~/RAW_DATA or ~/CURATED_DATA. Please replace ~ with the path that you are going to work in.
+**IMPORTANTLY: you need your own path to where this repository is downloaded. In the code you will find ~/RAW_DATA or ~/CURATED_DATA. Please replace ~ with the path that you are going to work in.**
 
 ### STEP A. Obtaining the data and indexing it.
 
