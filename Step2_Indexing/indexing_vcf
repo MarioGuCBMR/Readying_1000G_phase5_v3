@@ -14,7 +14,7 @@
 #MAIN#
 ######
 for i in {1..22}; do
-   bcftools index --tbi /emc/cbmr/users/zlc436/1000G_Phase3_v5/RAW_DATA/VCF_DATA/ALL.chr$i.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
+   bcftools index --tbi /emc/cbmr/users/zlc436/1000G_Phase3_v5/RAW_DATA/VCF_DATA/ALL.chr${i}.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz
 done
 
 #########
