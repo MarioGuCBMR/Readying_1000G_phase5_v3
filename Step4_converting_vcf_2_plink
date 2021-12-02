@@ -1,0 +1,12 @@
+#! /bin/bash
+#$ -S /bin/bash
+#$ -N "chr1-22_1000G"
+#$ -cwd
+#$ -pe smp 3
+
+mkdir ~/RAW_DATA/PLINK_DATA
+
+for i in {1..22}; do
+  mkdir ~/RAW_DATA/PLINK_DATA/chr$i
+  plink --vcf ~/RAW_DATA/VCF_DATA/ALL.chr$i.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz --keep-fam ~/CURATED_DATA/eur_samples_only.txt --maf 0.01 --geno 0.1 --out ~/RAW_DATA/PLINK_DATA/chr$i/chr$i_1000G_phase_3_v5_EUR_maf --make-bed
+done
