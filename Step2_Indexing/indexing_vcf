@@ -1,4 +1,8 @@
-#!/bin/sh
+#! /bin/bash
+#$ -S /bin/bash
+#$ -N "indexing_vcf"
+#$ -cwd
+#$ -pe smp 3
 
 ##############
 #INTRODUCTION#
