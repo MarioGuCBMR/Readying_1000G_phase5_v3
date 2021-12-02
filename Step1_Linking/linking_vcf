@@ -13,6 +13,10 @@
 ######
 #MAIN#
 ######
+
+mkdir ~/RAW_DATA/VCF_DATA
+cd ~/RAW_DATA/VCF_DATA
+
 for i in {1..22}; do
     ln  -s /emc/cbmr/data/imputed/1kgphase3_v5/ALL.chr${i}.phase3_v5.shapeit2_mvncall_integrated.noSingleton.genotypes.vcf.gz .
 done
