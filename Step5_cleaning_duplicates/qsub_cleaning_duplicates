@@ -55,14 +55,14 @@ for file_str2 in {1..22}; do
 
    #Step 3: creating two different bed files!!
 
-   plink --bfile $inputDir_end --exclude non_duplicated_ids.txt --make-bed --out duplicated
-   plink --bfile $inputDir_end --exclude duplicated_ids.txt --make-bed --out non_duplicated
+   plink --bfile $inputDir_end --exclude non_duplicated_ids.txt --make-bed --out duplicated #the output are duplicates lines. Literal lines.
+   plink --bfile $inputDir_end --exclude duplicated_ids.txt --make-bed --out non_duplicated #the output here are the rest of SNPs, including multi-allelic.
 
    #Step 4: let's merge the duplicated because they are annoying as hell:
 
-   plink --bfile duplicated --bmerge duplicated --merge-equal-pos --make-bed --out duplicated_clean
+   plink --bfile duplicated --bmerge duplicated --merge-equal-pos --make-bed --out duplicated_clean #here we combine the duplicated literal lines into just one. So that we do not have duplicates.
 
-   #Step 5: we merge both data sets!!
+   #Step 5: we merge both data sets: the cleaned "literal lines" duplicates and the rest of normal variants.
 
    mkdir $outputDir$file_str1$file_str2 #we create a new directory to save the data
 
