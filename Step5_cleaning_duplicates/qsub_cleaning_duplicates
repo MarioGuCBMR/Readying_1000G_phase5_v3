@@ -16,6 +16,8 @@ conda activate r_env
 #First we are gonna set some strings to match and create paths properly#
 ########################################################################
 
+# ~ = your total path until RAW_DATA.
+
 inputDir="~/RAW_DATA/PLINK_DATA/"
 outputDir="~/CURATED_DATA/PLINK_DATA/"
 
